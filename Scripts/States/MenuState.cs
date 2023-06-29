@@ -17,7 +17,56 @@ namespace SnakeGame.Scripts.States
         private List<Button> _components;
         public MenuState(Game1 game, GraphicsDevice graphicsDevice, ContentManager contentManager) : base(game, graphicsDevice, contentManager)
         {
+            var buttonTexture = _content.Load<Texture2D>("Controls/Button1");
+            var buttonFont = _content.Load<SpriteFont>("Fonts/butFont");
+            var menuBackGroundTexture = _content.Load<Texture2D>("Environment/stars");
+
+            var newGameButton = new Button(buttonTexture, buttonFont)
+            {
+                Position = new Vector2(100, 100),
+                Text = "New Game",
+            };
+            newGameButton.Click += NewGameButton_Click;
+
+            var loadGameButton = new Button(buttonTexture, buttonFont)
+            {
+                Position = new Vector2(100, 200),
+                Text = "Load Game",
+            };
+            loadGameButton.Click += LoadGameButton_Click;
+
+            var quitGameButton = new Button(buttonTexture, buttonFont)
+            {
+                Position = new Vector2(100, 300),
+                Text = "Quit Game",
+            };
+            quitGameButton.Click += QuitGameButton_Click;
+
+            _components = new List<Button>()
+            {
+                newGameButton,
+                loadGameButton, 
+                quitGameButton
+            };
         }
+
+        private void QuitGameButton_Click(object sender, EventArgs e)
+        {
+           // throw new NotImplementedException();
+           _game.Exit();
+        }
+
+        private void LoadGameButton_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void NewGameButton_Click(object sender, EventArgs e)
+        {
+            // throw new NotImplementedException();
+            _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
+        }
+
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
@@ -29,7 +78,14 @@ namespace SnakeGame.Scripts.States
             throw new NotImplementedException();
         }
 
-        public override void LoadGameButton_Click(object sender, EventHandler e)
+        public override void PostUpdate(GameTime gameTime)
+        {
+            throw new NotImplementedException();
+        }
+
+ 
+
+        public override void Update(GameTime gameTime)
         {
             throw new NotImplementedException();
         }
@@ -39,17 +95,12 @@ namespace SnakeGame.Scripts.States
             throw new NotImplementedException();
         }
 
-        public override void PostUpdate(GameTime gameTime)
+        public override void LoadGameButton_Click(object sender, EventHandler e)
         {
             throw new NotImplementedException();
         }
 
         public override void QuitGameButton_Click(object sender, EventHandler e)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void Update(GameTime gameTime)
         {
             throw new NotImplementedException();
         }

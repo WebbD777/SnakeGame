@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using SnakeGame.Scripts.States;
 
 namespace SnakeGame
 {
@@ -9,6 +10,8 @@ namespace SnakeGame
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
+        private State _currentState;
+        private State _nextState;
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -47,6 +50,11 @@ namespace SnakeGame
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
+        }
+
+        public void ChangeState(State state)
+        {
+            _nextState = state;
         }
     }
 }

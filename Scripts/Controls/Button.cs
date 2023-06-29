@@ -14,7 +14,7 @@ namespace SnakeGame.Scripts.Controls
         #region Fields
         private Texture2D _texture;
         private SpriteFont _font;
-        private GraphicsDeviceManager _graphics;
+     //   private GraphicsDeviceManager _graphics;
 
         private int width;
         private int height;
@@ -29,7 +29,7 @@ namespace SnakeGame.Scripts.Controls
 
         public bool Clicked { get; private set; }
         public Color Pencolour { get; private set; }
-        public Vector2 Position { get; private set; }
+        public Vector2 Position { get;  set; }
 
         public Rectangle Rectangle 
         { get 
@@ -38,16 +38,16 @@ namespace SnakeGame.Scripts.Controls
             } 
         }
 
-        public String Text { get; private set; }
+        public String Text { get;  set; }
 
         #endregion
 
         #region Methods
-        public Button(Texture2D texture, SpriteFont spriteFont, GraphicsDeviceManager graphics) { 
+        public Button(Texture2D texture, SpriteFont spriteFont){ //), GraphicsDeviceManager graphics) { 
         
             _texture = texture;
             _font = spriteFont;
-            _graphics = graphics;
+        //    _graphics = graphics;
 
             Pencolour = Color.Black;
             _shade = Color.White;
@@ -64,8 +64,8 @@ namespace SnakeGame.Scripts.Controls
         public override void Update(GameTime gameTime)
         {
             // To get midpoint of screen
-             width = _graphics.PreferredBackBufferWidth;
-             height = _graphics.PreferredBackBufferHeight;
+           //  width = _graphics.PreferredBackBufferWidth;
+         //    height = _graphics.PreferredBackBufferHeight;
 
             //Get mouse state
             MouseState ms = Mouse.GetState();
