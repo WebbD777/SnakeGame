@@ -70,7 +70,13 @@ namespace SnakeGame.Scripts.States
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            throw new NotImplementedException();
+            spriteBatch.Begin();
+            //Draws all the buttons in list
+            foreach (var button in _components)
+            {
+                button.Draw(gameTime, spriteBatch);
+            }
+            spriteBatch.End();
         }
 
         public override void LoadContent()
@@ -80,14 +86,18 @@ namespace SnakeGame.Scripts.States
 
         public override void PostUpdate(GameTime gameTime)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            Console.WriteLine("Post update");
         }
 
  
 
         public override void Update(GameTime gameTime)
         {
-            throw new NotImplementedException();
+            foreach (var button in _components)
+            {
+                button.Update(gameTime);
+            }
         }
 
         public override void NewGameButton_Click(object sender, EventHandler e)

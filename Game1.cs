@@ -12,6 +12,7 @@ namespace SnakeGame
 
         private State _currentState;
         private State _nextState;
+
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -22,6 +23,10 @@ namespace SnakeGame
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            IsMouseVisible = true;
+
+            // Sets current state to menustate 
+            _currentState = new MenuState(this, _graphics.GraphicsDevice, Content);
 
             base.Initialize();
         }
@@ -30,6 +35,8 @@ namespace SnakeGame
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            
+          
             // TODO: use this.Content to load your game content here
         }
 
@@ -40,6 +47,15 @@ namespace SnakeGame
 
             // TODO: Add your update logic here
 
+            // Changes state from Menu to Game
+            if (_nextState != null)
+            {
+                _currentState = _nextState;
+                _nextState = null;
+            }
+            _currentState.Update(gameTime);
+            _currentState.PostUpdate(gameTime);
+
             base.Update(gameTime);
         }
 
@@ -48,6 +64,9 @@ namespace SnakeGame
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+
+            //Draw the curernt state to screen, wheter Menu or game
+            _currentState.Draw(gameTime, _spriteBatch);
 
             base.Draw(gameTime);
         }

@@ -17,37 +17,37 @@ namespace SnakeGame.Scripts.States
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            throw new NotImplementedException();
+           // throw new NotImplementedException();
         }
 
         public override void LoadContent()
         {
-            throw new NotImplementedException();
+        //    throw new NotImplementedException();
         }
 
         public override void LoadGameButton_Click(object sender, EventHandler e)
         {
-            throw new NotImplementedException();
+        //    throw new NotImplementedException();
         }
 
         public override void NewGameButton_Click(object sender, EventHandler e)
         {
-            throw new NotImplementedException();
+      //      throw new NotImplementedException();
         }
 
         public override void PostUpdate(GameTime gameTime)
         {
-            throw new NotImplementedException();
+         //   throw new NotImplementedException();
         }
 
         public override void QuitGameButton_Click(object sender, EventHandler e)
         {
-            throw new NotImplementedException();
+      //      throw new NotImplementedException();
         }
 
         public override void Update(GameTime gameTime)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }

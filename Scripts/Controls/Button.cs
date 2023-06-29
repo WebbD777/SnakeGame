@@ -56,9 +56,13 @@ namespace SnakeGame.Scripts.Controls
         {
             
             //Vector2 vecPos = new Vector2(width / 2, height / 2);
-            Vector2 vecPos = new Vector2(Position.X, Position.Y);
+           // Vector2 vecPos = new Vector2(Position.X, Position.Y);
 
-            spriteBatch.Draw(_texture, vecPos, Color.White);
+            //Draws the buttons
+            spriteBatch.Draw(_texture, Rectangle, _shade);
+
+            //Draws text on Buttons
+
         }
 
         public override void Update(GameTime gameTime)
