@@ -19,7 +19,7 @@ namespace SnakeGame.Scripts.States
         {
             var buttonTexture = _content.Load<Texture2D>("Controls/Button1");
             var buttonFont = _content.Load<SpriteFont>("Fonts/butFont");
-            var menuBackGroundTexture = _content.Load<Texture2D>("Environment/stars");
+            menuBackGroundTexture = _content.Load<Texture2D>("Environment/stars");
 
             var newGameButton = new Button(buttonTexture, buttonFont)
             {
@@ -71,6 +71,9 @@ namespace SnakeGame.Scripts.States
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
+
+            //Draws background
+            spriteBatch.Draw(menuBackGroundTexture, new Vector2(0, 0), Color.White);
             //Draws all the buttons in list
             foreach (var button in _components)
             {
