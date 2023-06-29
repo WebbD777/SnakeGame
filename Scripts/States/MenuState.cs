@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using SnakeGame.Scripts.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,9 @@ namespace SnakeGame.Scripts.States
 {
     internal class MenuState : State
     {
+        private Texture2D menuBackGroundTexture;
+
+        private List<Button> _components;
         public MenuState(Game1 game, GraphicsDevice graphicsDevice, ContentManager contentManager) : base(game, graphicsDevice, contentManager)
         {
         }
