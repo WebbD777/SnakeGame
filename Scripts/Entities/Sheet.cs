@@ -25,6 +25,8 @@ namespace SnakeGame.Scripts.Entities
         private int rowPellet;
         private int colPellet;
 
+        Rectangle destinationRectangle; 
+
         private List<Microsoft.Xna.Framework.Rectangle> arrSheet;
 
         public Vector2 enemyBounds = new Vector2(300, 150);
@@ -33,6 +35,8 @@ namespace SnakeGame.Scripts.Entities
             _texture = texture;
             _row = row;
             _col = coloumn;
+
+            arrSheet = new List<Rectangle>();
         }
 
         public void LoadContent() {
@@ -49,6 +53,20 @@ namespace SnakeGame.Scripts.Entities
              rowPellet = 2 / _col;
              colPellet = 2 % _col; //Pellet
 
+            destinationRectangle = new Rectangle((int)enemyBounds.X, (int)enemyBounds.Y, width, height);
+            
+            // Add the body, head, pellet source recyangles to list
+            // Lastly the destination rectangle
+        //    Rectangle arrBod = new Rectangle(0, 0, 32, 32); arrSheet.Add(arrBod);
+            arrSheet.Add(new Rectangle(width * colBody, height * rowBody, width, height));
+            arrSheet.Add(new Rectangle(width * colHead, height * rowHead, width, height));
+            arrSheet.Add(new Rectangle(width * colPellet, height * rowPellet, width, height));
+            arrSheet.Add(destinationRectangle);
+        }
+
+        public List<Rectangle> getListSprite()
+        {
+            return arrSheet;
         }
 
         public void Update(SpriteBatch spriteBatch, GraphicsDevice graphics) 
@@ -60,17 +78,19 @@ namespace SnakeGame.Scripts.Entities
 
         public void Draw(SpriteBatch spriteBatch) {
 
+            /*
             Rectangle sourceRectangle = new Rectangle(0, 0, 0, 0);
             Rectangle destinationRectangle = new Rectangle(0, 0, 0, 0);
 
             sourceRectangle.X = width * colHead; sourceRectangle.Y = height * rowHead; sourceRectangle.Width = width; sourceRectangle.Height = height;
-            destinationRectangle.X = (int)enemyBounds.X; destinationRectangle.Y = (int)enemyBounds.Y; destinationRectangle.Width = width; destinationRectangle.Height = height;
+     //       destinationRectangle.X = (int)enemyBounds.X; destinationRectangle.Y = (int)enemyBounds.Y; destinationRectangle.Width = width; destinationRectangle.Height = height;
 
             spriteBatch.Begin();
 
             spriteBatch.Draw(_texture, destinationRectangle, sourceRectangle, Color.White);
 
             spriteBatch.End();
+            */
 
 
         }
